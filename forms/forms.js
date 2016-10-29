@@ -1,4 +1,4 @@
-$(document).ready(function  () {
+$(document).ready(function () {
     var array = [];
     $('#employeeinfo').on('submit', function (event) {
       event.preventDefault();
