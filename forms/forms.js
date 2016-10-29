@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(function  () {
     var array = [];
-    $('#employeeinfo').on('submit', function(event) {
+    $('#employeeinfo').on('submit', function (event) {
       event.preventDefault();
 
       // initialize a new variable as an empty object
@@ -9,8 +9,9 @@ $(document).ready(function() {
       // convert the form inputs into an array
       var fields = $('#employeeinfo').serializeArray();
 
-      // iterate over the array and transfer each index into a new property on an object with the value of what was entered.
-      fields.forEach(function(element, index, array) {
+      // iterate over the array and transfer each index into a new property on
+      // an object with the value of what was entered.
+      fields.forEach(function (element, index, array) {
         // review index notation vs. dot notation on objects
         // here, dot notation wouldn't work
         values[element.name] = element.value;
@@ -31,6 +32,4 @@ $(document).ready(function() {
 
       $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + '</p>');
     }
-
-
-});
+  });
