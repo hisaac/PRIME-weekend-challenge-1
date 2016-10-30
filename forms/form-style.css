@@ -11,6 +11,10 @@ table {
   margin: 0 auto;
 }
 
+tr, td, th {
+  border: 1px solid black;
+}
+
 #form {
   margin: 0 auto;
   text-align: center;

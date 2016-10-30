@@ -18,11 +18,11 @@ $(document).ready(function () {
     function appendDom() {
         $('table').append(
             '<tr>' +
-                '<td>test</td>' +
-                '<td>test</td>' +
-                '<td>test</td>' +
-                '<td>test</td>' +
-                '<td>test</td>' +
+                '<td>' + employeeInfo.firstName + '</td>' +
+                '<td>' + employeeInfo.lastName + '</td>' +
+                '<td>' + employeeInfo.idNumber + '</td>' +
+                '<td>' + employeeInfo.jobTitle + '</td>' +
+                '<td>' + employeeInfo.annualSalary + '</td>' +
             '</tr>'
         );
     }
