@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+
     //------------------------------ VARIABLES ------------------------------//
 
     var tempArray = [];
@@ -16,10 +16,11 @@ $(document).ready(function(){
 
     //------------------------------ FUNCTIONS ------------------------------//
 
+    // takes form data and puts it onto the DOM
     function submitAction(event){
         event.preventDefault();
         applyFormData();
-        appendDom();
+        appendDOM();
         addSalary();
 
         // clear input fields
@@ -37,7 +38,7 @@ $(document).ready(function(){
     }
 
     // appends employeeInfo object to the table
-    function appendDom(){
+    function appendDOM(){
         $('table').append(
             '<tr>' +
                 '<td>' + employeeInfo.firstName + '</td>' +
