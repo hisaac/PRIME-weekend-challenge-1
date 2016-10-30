@@ -17,10 +17,7 @@ $(document).ready(function(){
         $('#employeeinfo').find('input[type=text]').val('');
     });
 
-    $('#payrolltable').on('delete', function(event){
-        // event.preventDefault();
-        subtractSalary(this);
-    });
+    $('#payrolltable').on('click', '.delete', subtractSalary);
 
     //------------------------------ FUNCTIONS ------------------------------//
 
@@ -42,8 +39,10 @@ $(document).ready(function(){
                 '<td>' + employeeInfo.lastName + '</td>' +
                 '<td>' + employeeInfo.idNumber + '</td>' +
                 '<td>' + employeeInfo.jobTitle + '</td>' +
-                '<td>$' + employeeInfo.annualSalary + '</td>' +
-                '<td class="delete"><button type="delete" value="Delete">Delete</button></td>' +
+                '<td class="salary">$' + employeeInfo.annualSalary + '</td>' +
+                '<td class="delete">' +
+                    '<input type="button" value="Delete" name="delete" />' +
+                '</td>' +
             '</tr>'
         );
     }
@@ -53,16 +52,16 @@ $(document).ready(function(){
         var individualSalary = parseInt(employeeInfo.annualSalary);
         totalSalaries += individualSalary;
         $('#totalexpenditures').html(
-            'Total Salary Expenditures: $' + totalSalaries
+            '<p>Total Salary Expenditures: $' + totalSalaries + '</p>'
         );
     }
 
-    // subtract individual salary from totalSalaries
+    // subtract individual salary from totalSalaries, and remove cell
     function subtractSalary(){
-        var individualSalary = parseInt(employeeInfo.annualSalary);
-        totalSalaries -= individualSalary;
+        totalSalaries -= parseInt($(this).siblings().last().text().substring(1));
         $('#totalexpenditures').html(
             'Total Salary Expenditures: $' + totalSalaries
         );
+        $(this).parent().remove();
     }
   });
