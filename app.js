@@ -56,17 +56,18 @@ $(document).ready(function(){
     // add individual salary to totalSalaries
     function addSalary(){
         var individualSalary = parseInt(employeeInfo.annualSalary);
-        totalSalaries += individualSalary;
+        totalSalaries += individualSalary / 12;
         $('#totalexpenditures').html(
-            '<p>Total Salary Expenditures: $' + totalSalaries + '</p>'
+            '<p>Monthly Salary Expenditures: $' + totalSalaries + '</p>'
         );
     }
 
     // subtract individual salary from totalSalaries, and remove cell
     function subtractSalary(){
-        totalSalaries -= parseInt($(this).siblings().last().text().substring(1));
+        var individualSalary = parseInt($(this).siblings().last().text().substring(1));
+        totalSalaries -= individualSalary / 12;
         $('#totalexpenditures').html(
-            'Total Salary Expenditures: $' + totalSalaries
+            'Monthly Salary Expenditures: $' + totalSalaries
         );
         $(this).parent().remove();
     }
