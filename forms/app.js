@@ -6,5 +6,25 @@ $(document).ready(function () {
         jobTitle: 'N/A',
         annualSalary: NaN,
     };
-    console.log(employeeInfo);
+
+    $('#employeeinfo').on('submit', function (event) {
+        event.preventDefault();
+
+        appendDom();
+
+        console.log(employeeInfo.firstName);
+    });
+
+    function appendDom() {
+        $('table').append(
+            '<tr>' +
+                '<td>test</td>' +
+                '<td>test</td>' +
+                '<td>test</td>' +
+                '<td>test</td>' +
+                '<td>test</td>' +
+            '</tr>'
+        );
+    }
+
   });
