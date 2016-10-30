@@ -27,7 +27,11 @@ $(document).ready(function () {
     });
 
     function appendDom(empInfo) {
-        $('#container').append('<div class="person"></div>');
+        $('#container').append(
+            '<tr>' +
+                '<td>test</td>' +
+            '<tr>'
+        );
         var $el = $('#container').children().last();
 
         $el.append('<p>' + empInfo.employeefirstname + ' ' + empInfo.employeelastname + '</p>');
