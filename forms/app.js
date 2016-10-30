@@ -10,10 +10,19 @@ $(document).ready(function () {
     $('#employeeinfo').on('submit', function (event) {
         event.preventDefault();
 
+        applyForm(employeeInfo.firstName, employeeInfo.lastName, employeeInfo.idNumber, employeeInfo.jobTitle, employeeInfo.annualSalary);
+
         appendDom();
 
-        console.log(employeeInfo.firstName);
     });
+
+    function applyForm(first, last, id, title, salary){
+        console.log('First Name: ', first);
+        console.log('Last Name: ', last);
+        console.log('ID Number: ', id);
+        console.log('Job Title: ', title);
+        console.log('Annual Salary', salary);
+    }
 
     function appendDom() {
         $('table').append(
