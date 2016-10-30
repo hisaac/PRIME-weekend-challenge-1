@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
     var employeeInfo = {
         firstName: 'N/A',
         lastName: 'N/A',
@@ -6,34 +6,37 @@ $(document).ready(function () {
         jobTitle: 'N/A',
         annualSalary: NaN,
     };
+    var tempArray = [];
 
-    $('#employeeinfo').on('submit', function (event) {
+    $('#employeeinfo').on('submit', function(event){
         event.preventDefault();
-
-        applyForm(employeeInfo.firstName, employeeInfo.lastName, employeeInfo.idNumber, employeeInfo.jobTitle, employeeInfo.annualSalary);
-
+        applyFormData();
         appendDom();
 
+        // clear input fields
+        $('#employeeinfo').find('input[type=text]').val('');
     });
 
-    function applyForm(first, last, id, title, salary){
-        console.log('First Name: ', first);
-        console.log('Last Name: ', last);
-        console.log('ID Number: ', id);
-        console.log('Job Title: ', title);
-        console.log('Annual Salary', salary);
+    // moves form data into the employeeInfo object
+    function applyFormData(){
+        tempArray = $('#employeeinfo').serializeArray();
+        employeeInfo.firstName = tempArray[0].value;
+        employeeInfo.lastName = tempArray[1].value;
+        employeeInfo.idNumber = tempArray[2].value;
+        employeeInfo.jobTitle = tempArray[3].value;
+        employeeInfo.annualSalary = tempArray[4].value;
     }
 
-    function appendDom() {
+    // appends employeeInfo object to the table
+    function appendDom(){
         $('table').append(
             '<tr>' +
                 '<td>' + employeeInfo.firstName + '</td>' +
                 '<td>' + employeeInfo.lastName + '</td>' +
                 '<td>' + employeeInfo.idNumber + '</td>' +
                 '<td>' + employeeInfo.jobTitle + '</td>' +
-                '<td>' + employeeInfo.annualSalary + '</td>' +
+                '<td>$' + employeeInfo.annualSalary + '</td>' +
             '</tr>'
         );
     }
-
   });
