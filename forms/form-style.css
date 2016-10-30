@@ -24,7 +24,6 @@ input {
 }
 
 #form {
-  margin: 0 auto;
   text-align: center;
 }
 
@@ -35,4 +34,8 @@ input {
 
 #totalexpenditures {
   text-align: center;
+}
+
+.delete {
+  border: none;
 }

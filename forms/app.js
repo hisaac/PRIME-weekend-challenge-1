@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     //------------------------------ VARIABLES ------------------------------//
 
     var tempArray = [];
@@ -14,11 +13,13 @@ $(document).ready(function(){
         appendDom();
         addSalary();
 
-        $('#totalexpenditures').html(
-            'Total Salary Expenditures: $' + totalSalaries);
-
         // clear input fields
         $('#employeeinfo').find('input[type=text]').val('');
+    });
+
+    $('#payrolltable').on('delete', function(event){
+        // event.preventDefault();
+        subtractSalary(this);
     });
 
     //------------------------------ FUNCTIONS ------------------------------//
@@ -42,6 +43,7 @@ $(document).ready(function(){
                 '<td>' + employeeInfo.idNumber + '</td>' +
                 '<td>' + employeeInfo.jobTitle + '</td>' +
                 '<td>$' + employeeInfo.annualSalary + '</td>' +
+                '<td class="delete"><button type="delete" value="Delete">Delete</button></td>' +
             '</tr>'
         );
     }
@@ -50,7 +52,17 @@ $(document).ready(function(){
     function addSalary(){
         var individualSalary = parseInt(employeeInfo.annualSalary);
         totalSalaries += individualSalary;
+        $('#totalexpenditures').html(
+            'Total Salary Expenditures: $' + totalSalaries
+        );
     }
 
-    //------------------------------- THE END -------------------------------//
+    // subtract individual salary from totalSalaries
+    function subtractSalary(){
+        var individualSalary = parseInt(employeeInfo.annualSalary);
+        totalSalaries -= individualSalary;
+        $('#totalexpenditures').html(
+            'Total Salary Expenditures: $' + totalSalaries
+        );
+    }
   });
