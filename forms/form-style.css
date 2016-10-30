@@ -15,6 +15,14 @@ tr, td, th {
   border: 1px solid black;
 }
 
+label {
+  position: absolute;
+}
+
+input {
+  margin-left: 18em;
+}
+
 #form {
   margin: 0 auto;
   text-align: center;
