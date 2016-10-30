@@ -7,6 +7,7 @@ $(document).ready(function(){
         annualSalary: NaN,
     };
     var tempArray = [];
+    var totalSalaries = 0;
 
     $('#employeeinfo').on('submit', function(event){
         event.preventDefault();
@@ -38,5 +39,18 @@ $(document).ready(function(){
                 '<td>$' + employeeInfo.annualSalary + '</td>' +
             '</tr>'
         );
+
+        addSalary();
+
+        $('#totalexpenditures').html(
+            'Total Salary Expenditures: $' + totalSalaries
+        );
+    }
+
+    function addSalary(){
+        var individualSalary = parseInt(employeeInfo.annualSalary);
+        console.log(individualSalary);
+        totalSalaries += individualSalary;
+        console.log('should still be a number: ', totalSalaries);
     }
   });
