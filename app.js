@@ -7,7 +7,15 @@ $(document).ready(function(){
 
     //-------------------------------- LOGIC --------------------------------//
 
-    $('#employeeinfo').on('submit', function(event){
+    // listen for click of submit button
+    $('#employeeinfo').on('submit', submitAction);
+
+    // listen for click of delete button
+    $('#payrolltable').on('click', '.delete', subtractSalary);
+
+    //------------------------------ FUNCTIONS ------------------------------//
+
+    function submitAction(event){
         event.preventDefault();
         applyFormData();
         appendDom();
@@ -15,11 +23,7 @@ $(document).ready(function(){
 
         // clear input fields
         $('#employeeinfo').find('input[type=text]').val('');
-    });
-
-    $('#payrolltable').on('click', '.delete', subtractSalary);
-
-    //------------------------------ FUNCTIONS ------------------------------//
+    }
 
     // moves form data into the employeeInfo object
     function applyFormData(){
