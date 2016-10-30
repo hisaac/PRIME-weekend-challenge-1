@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    
     //------------------------------ VARIABLES ------------------------------//
 
     var tempArray = [];
