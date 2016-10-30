@@ -1,22 +1,27 @@
 $(document).ready(function(){
-    var employeeInfo = {
-        firstName: 'N/A',
-        lastName: 'N/A',
-        idNumber: NaN,
-        jobTitle: 'N/A',
-        annualSalary: NaN,
-    };
+
+    //------------------------------ VARIABLES ------------------------------//
+
     var tempArray = [];
     var totalSalaries = 0;
+    var employeeInfo = {};
+
+    //-------------------------------- LOGIC --------------------------------//
 
     $('#employeeinfo').on('submit', function(event){
         event.preventDefault();
         applyFormData();
         appendDom();
+        addSalary();
+
+        $('#totalexpenditures').html(
+            'Total Salary Expenditures: $' + totalSalaries);
 
         // clear input fields
         $('#employeeinfo').find('input[type=text]').val('');
     });
+
+    //------------------------------ FUNCTIONS ------------------------------//
 
     // moves form data into the employeeInfo object
     function applyFormData(){
@@ -39,18 +44,13 @@ $(document).ready(function(){
                 '<td>$' + employeeInfo.annualSalary + '</td>' +
             '</tr>'
         );
-
-        addSalary();
-
-        $('#totalexpenditures').html(
-            'Total Salary Expenditures: $' + totalSalaries
-        );
     }
 
+    // add individual salary to totalSalaries
     function addSalary(){
         var individualSalary = parseInt(employeeInfo.annualSalary);
-        console.log(individualSalary);
         totalSalaries += individualSalary;
-        console.log('should still be a number: ', totalSalaries);
     }
+
+    //------------------------------- THE END -------------------------------//
   });
